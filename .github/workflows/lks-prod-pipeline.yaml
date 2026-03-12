@@ -18,7 +18,6 @@ env:
   ECS_CLUSTER: lks-voting-cluster
   WORKER_TASK_DEFINITION: worker/task-definition.json
   WORKER_CONTAINER_NAME: lks-worker-container
-  ENV: "prod"
 
 permissions:
   id-token: write
