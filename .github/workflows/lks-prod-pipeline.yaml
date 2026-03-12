@@ -14,7 +14,7 @@ env:
   AWS_REGION: us-east-1                 
   ECR_REPOSITORY: lks-voting-image
   ENV: "prod"
-  ECS_SERVICE_WORKER: worker-service          
+  ECS_SERVICE_WORKER: lks-worker-service          
   ECS_CLUSTER: lks-voting-cluster
   WORKER_TASK_DEFINITION: worker/task-definition.json
   WORKER_CONTAINER_NAME: lks-worker-container
@@ -121,7 +121,7 @@ jobs:
     - name: Deploy Amazon ECS task definition Worker
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ env.WORKER_TASK_DEFINITION }}
+        task-definition: ${{ steps.task-def-worker.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE_WORKER }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
