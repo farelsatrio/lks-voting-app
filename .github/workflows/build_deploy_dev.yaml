@@ -19,9 +19,9 @@ permissions:
 
 jobs:
   build:
-    name: Build Image Production
+    name: Build Image Development
     runs-on: ubuntu-latest
-    environment: Production
+    environment: Development
     steps:
     - name: Checkout
       uses: actions/checkout@v3
