@@ -78,6 +78,5 @@
     },
     "registeredAt": "2026-03-12T04:00:48.174Z",
     "registeredBy": "arn:aws:sts::116701311979:assumed-role/voclabs/user4880430=Farel",
-    "enableFaultInjection": false,
     "tags": []
 }
