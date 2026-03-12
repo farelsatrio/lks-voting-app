@@ -69,7 +69,7 @@ jobs:
       
   node1:
     name: Pull Image on node1
-    dependson: build
+    needs: build
     runs-on: node1
     steps:
       - name: Update runner's docker Version, as worker module requires it
@@ -143,7 +143,7 @@ jobs:
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG 
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$RESULT_IMAGE_TAG 
           
-  node2:
+  master:
     name: Pull Image on master
     needs: build
     runs-on: master
