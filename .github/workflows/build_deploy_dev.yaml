@@ -95,7 +95,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: voting-app
+          ECR_REPOSITORY: lks-voting-image
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
@@ -133,7 +133,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: voting-app
+          ECR_REPOSITORY: lks-voting-image
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
@@ -171,7 +171,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: voting-app
+          ECR_REPOSITORY: lks-voting-image
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
@@ -185,7 +185,7 @@ jobs:
   deploy:  
     name: Example Deploy Application into docker swarm
     runs-on: master
-    needs: node1
+    needs: [node1, node2, master]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
