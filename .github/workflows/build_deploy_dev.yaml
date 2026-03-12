@@ -13,10 +13,6 @@ env:
   ECR_REPOSITORY: lks-voting-image
   ENV: "dev"
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   build:
     name: Build Image Development
